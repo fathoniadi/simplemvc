@@ -1,0 +1,25 @@
+{
+  "name": "simplemvc",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "start": "node ./bin/www"
+  },
+  "dependencies": {
+    "body-parser": "~1.15.1",
+    "change-case": "^3.0.0",
+    "cookie-parser": "~1.4.3",
+    "crypto": "0.0.3",
+    "debug": "~2.2.0",
+    "dotenv": "^2.0.0",
+    "express": "~4.13.4",
+    "express-session": "^1.14.2",
+    "fs": "0.0.1-security",
+    "hbs": "~4.0.0",
+    "jsonwebtoken": "^7.2.1",
+    "morgan": "~1.7.0",
+    "mysql": "^2.11.1",
+    "nconf": "^0.8.4",
+    "serve-favicon": "~2.3.0"
+  }
+}
