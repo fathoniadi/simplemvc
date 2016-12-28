@@ -3,10 +3,10 @@ var connect = null;
 module.exports.init = function(database)
 {
 	  connect = database.createConnection({
-	  host     : 'localhost',
-	  user     : 'root',
-	  password : 'empatmaret',
-	  database : 'ajkuiz'
+	  host     : '',
+	  user     : '',
+	  password : '',
+	  database : ''
 	});
 
 }
