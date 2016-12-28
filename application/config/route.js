@@ -1,4 +1,7 @@
 module.exports = function(route)
 {
-	route.setRoute("auth");
+
+	route.setDefaultRoute("auth");
+	// route.setRoute(nama file, nama route);
+	route.setRoute("auth","auth");
 }

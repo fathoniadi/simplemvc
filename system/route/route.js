@@ -14,9 +14,18 @@ module.exports.init = function (_express,_app,_fs,_environment,_controller) {
 	controller = _controller;
 }
 
-module.exports.setRoute= function(routeName)
+module.exports.setRoute= function(routeFileName, routeName)
 {
-	routes.push(routeName);
+	routes.push({"file":routeFileName, "name":routeName});
+}
+
+module.exports.setDefaultRoute = function(routeFileName)
+{
+	//console.log(routeFileName);
+	var controllerPath = environment.APP_PATH+"/controller/";
+	var router = express.Router();
+	require("../../"+controllerPath+routeFileName+".js")(router,controller);
+	app.use('/', router);
 }
 
 module.exports.routing = function()
@@ -26,10 +35,10 @@ module.exports.routing = function()
 	var n = routes.length;
 	for(i=0;i<n;i++)
 	{
-		require("../../"+controllerPath+routes[i]+".js")(router,controller);
-		routesName = '/'+routes[i];
-		console.log(routesName);
-		app.use(routesName, router);
+		require("../../"+controllerPath+routes[i].file+".js")(router,controller);
+		routeName = '/'+routes[i].name;
+		//console.log(routes[i].name);
+		app.use(routeName, router);
 		
 	}
 

@@ -12,13 +12,17 @@ var crypto = require('crypto');
 var jwt = require('jsonwebtoken');
 var mysql      = require('mysql');
 var conn = require(path.join(__dirname, environment.APP_PATH+'/config/database.js'));
-conn.init(mysql);
 var controller = require(path.join(__dirname, environment.SYS_PATH+'/controller/controller.js'));
-controller.init(conn.connection());
 var route = require(path.join(__dirname, environment.SYS_PATH+'/route/route.js'));
+
+
 route.init(express,app,fs,environment,controller);
 require(path.join(__dirname, environment.APP_PATH+'/config/route.js'))(route);
 route.routing();
+
+
+conn.init(mysql);
+controller.init(conn.connection());
 
 
 // view engine setup
@@ -48,7 +52,7 @@ app.use(function(req, res, next) {
 
 // development error handler
 // will print stacktrace
-if (app.get('env') === 'development') {
+if (environment.ENV == 'development') {
   app.use(function(err, req, res, next) {
     res.status(err.status || 500);
     res.render('errors/error', {
@@ -62,7 +66,7 @@ if (app.get('env') === 'development') {
 // no stacktraces leaked to user
 app.use(function(err, req, res, next) {
   res.status(err.status || 500);
-  res.render('error', {
+  res.render('errors/error', {
     message: err.message,
     error: {}
   });
