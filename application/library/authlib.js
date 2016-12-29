@@ -1,6 +1,6 @@
 var jwt = require('jsonwebtoken');
 module.exports.verify = function(token, data){
-	console.log(token);
+	//console.log(token);
 	if (token) {
 		jwt.verify(token, 'shhhhh', function(err, decoded) {
 			if (err) {

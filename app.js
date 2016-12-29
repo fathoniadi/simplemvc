@@ -73,6 +73,11 @@ app.use(function(err, req, res, next) {
 });
 
 
-app.listen(parseInt(environment.NODE_PORT));
+app.listen(parseInt(environment.NODE_PORT), function()
+{
+  console.log("Listen on port = "+environment.NODE_PORT);
+  console.log("Run on "+environment.ENV+" environment");
+
+});
 
 module.exports = app;
