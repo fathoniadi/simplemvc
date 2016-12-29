@@ -21,7 +21,6 @@ module.exports.setRoute= function(routeFileName, routeName)
 
 module.exports.setDefaultRoute = function(routeFileName)
 {
-	//console.log(routeFileName);
 	var controllerPath = environment.APP_PATH+"/controller/";
 	var router = express.Router();
 	require("../../"+controllerPath+routeFileName+".js")(router,controller);
@@ -37,7 +36,6 @@ module.exports.routing = function()
 	{
 		require("../../"+controllerPath+routes[i].file+".js")(router,controller);
 		routeName = '/'+routes[i].name;
-		//console.log(routes[i].name);
 		app.use(routeName, router);
 		
 	}
