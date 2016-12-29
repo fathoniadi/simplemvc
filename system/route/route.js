@@ -29,7 +29,7 @@ module.exports.setDefaultRoute = function(routeFileName)
 
 module.exports.routing = function()
 {
-	var controllerPath = environment.APP_PATH+"/controller/";
+ 	var controllerPath = environment.APP_PATH+"/controller/";
 	var router = express.Router();
 	var n = routes.length;
 	for(i=0;i<n;i++)

@@ -1,6 +1,6 @@
-module.exports = function (router, controller)
+module.exports = function (router,controller)
 {
-	var authlib = require("../library/authlib.js");
+	var authlib = controller.loadLibrary("authlib");
 	router.get("/", function(req, res, next) 
 	{
 		var data = controller.crypto.createHash("sha256").update("hehe").digest("hex");
